@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+body {
+  /* Provide a subtle base color, the magic happens with mesh gradients in the components */
+  background-color: #f8fafc;
+}
+
+/* Custom scrollbar for an extra premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 28, 64, 0.15);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 28, 64, 0.3);
+}
