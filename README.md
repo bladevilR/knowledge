@@ -1,20 +1,47 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 档案智能问答前端
 
-# Run and deploy your AI Studio app
+这个前端是 `workstation_143` 的本地档案问答入口。
 
-This contains everything you need to run your app locally.
+工作流程：
 
-View your app in AI Studio: https://ai.studio/apps/e5bc6741-16f2-4c0d-ba2d-52ccb02dfe9a
+1. 用户直接输入问题。
+2. 本地后端先调用 archive 档案检索。
+3. 后端把检索到的资料交给内网问答模型。
+4. 页面返回一段中文答案，并显示简短资料来源。
 
-## Run Locally
+## 本地启动
 
-**Prerequisites:**  Node.js
+```powershell
+npm install
+npm run dev
+```
 
+打开：
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```text
+http://127.0.0.1:3000
+```
+
+## 配置
+
+默认会读取：
+
+```text
+workstation_143/knowledge_base/知识库交付包_20260403/config.yaml
+```
+
+也可以用 `.env.local` 覆盖：
+
+```powershell
+ARCHIVE_UI_LLM_URL=
+ARCHIVE_UI_LLM_KEY=
+ARCHIVE_UI_LLM_MODEL=
+ARCHIVE_UI_MODEL_NAME=内网问答模型
+KB_API_URL=http://127.0.0.1:8001
+```
+
+如果要限定档案根目录：
+
+```powershell
+WORKSTATION143_ARCHIVE_ROOTS=D:\AI专班;C:\path\to\archive
+```
